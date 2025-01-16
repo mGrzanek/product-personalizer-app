@@ -20,7 +20,7 @@ const Product = ({ id, name, title, colors, sizes, basePrice }) => {
       Summary:
       =========
       Name: ${name}
-      Price: ${getPrice()}
+      Price: ${getPrice()} $
       Size: ${currentSize}
       Color: ${currentColor}
       `
@@ -40,6 +40,7 @@ const Product = ({ id, name, title, colors, sizes, basePrice }) => {
           currentColor={currentColor}
           colors={colors} 
           sizes={sizes} 
+          currentSize={currentSize}
           setCurrentColor={setCurrentColor}
           setCurrentSize={setCurrentSize}/>
       </div>
