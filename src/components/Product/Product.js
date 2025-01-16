@@ -12,6 +12,11 @@ const Product = ({ id, name, title, colors, sizes, basePrice }) => {
     return styles['color' + arg[0].toUpperCase() + arg.substr(1).toLowerCase()];
   }
 
+  // const setColor = newColor => {
+  //   setCurrentColor(newColor);
+  //   console.log(newColor);
+  // }
+
   return (
     <article className={styles.product}>
       <div className={styles.imageContainer}>
@@ -30,8 +35,8 @@ const Product = ({ id, name, title, colors, sizes, basePrice }) => {
             <h3 className={styles.optionLabel}>Sizes</h3>
             <ul className={styles.choices}>
               {sizes.map(size => 
-              <li>
-                <button type="button" className={clsx(size.name === currentSize && styles.active)}>
+              <li key={size.id}>
+                <button onClick={() => setCurrentSize(size.name)} type="button" className={clsx(size.name === currentSize && styles.active)}>
                   {size.name}
                 </button>
                 </li>)}
@@ -41,8 +46,8 @@ const Product = ({ id, name, title, colors, sizes, basePrice }) => {
             <h3 className={styles.optionLabel}>Colors</h3>
             <ul className={styles.choices}>
               {colors.map(color => 
-              <li>
-                <button type className={clsx(prepareColorClassName(color), color === currentColor && styles.active)}></button>
+              <li key={color.id}>
+                <button onClick={() => setCurrentColor(color)} type="button" className={clsx(prepareColorClassName(color), color === currentColor && styles.active)}></button>
               </li>)}
             </ul>
           </div>
